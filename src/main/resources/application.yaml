@@ -8,9 +8,9 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:4432/{db-name}
-    username: admin
-    password: admin
+    url: jdbc:postgresql://localhost:5432/booleandb
+    username: fidan
+    password:
     max-active: 5
     max-idle: 5
   jpa:
@@ -23,8 +23,7 @@ spring:
     show-sql: true
   security:
     oauth2:
-      client:
-        resourceserver:
-          jwt:
-            issuer-uri: http://localhost:8080/realms/{realm-name}
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/booleanuk-sso-challenge-day
 

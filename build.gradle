@@ -36,6 +36,10 @@ dependencies {
 
     // oauth2 server
     implementation 'org.springframework.boot:spring-boot-starter-oauth2-resource-server'
+
+    //OpenAPI
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-scalar:2.8.16")
+    implementation 'org.apache.commons:commons-lang3:3.18.0'
 }
 
 tasks.named('test') {
