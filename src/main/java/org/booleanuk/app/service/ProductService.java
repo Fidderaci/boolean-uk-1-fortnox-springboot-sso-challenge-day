@@ -56,6 +56,15 @@ public class ProductService {
     }
 
     public void deleteProduct(Long id) {
+        Product product = productRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Product not found with id " + id));
+
+        List<Order> ordersWithProduct = orderRepository.findByProductsContaining(product);
+        for (Order order : ordersWithProduct) {
+            order.getProducts().removeIf(p -> p.getId().equals(product.getId()));
+            orderRepository.save(order);
+        }
+
         productRepository.deleteById(id);
     }
 
